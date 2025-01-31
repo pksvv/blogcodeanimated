@@ -7,34 +7,19 @@
   <path id="hexagon-path" d="M 100,20 L 170,60 L 170,140 L 100,180 L 30,140 L 30,60 L 100,20"
         stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"
         stroke-dasharray="360" stroke-dashoffset="0">
-    <animate attributeName="stroke-dashoffset" values="360;0" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" values="360;0" dur="10s" repeatCount="indefinite"/>
   </path>
 
   <!-- Tracing Dot Moving Around Hexagon -->
   <circle r="5" fill="currentColor">
-    <animateMotion dur="4s" repeatCount="indefinite">
+    <animateMotion dur="10s" repeatCount="indefinite">
       <mpath href="#hexagon-path"/>
     </animateMotion>
   </circle>
 
-  <!-- "V" Letter -->
-  <text x="55" y="115" font-family="Arial" font-size="70" font-weight="bold">
-    V
+  <!-- "VG" Perfectly Centered -->
+  <text x="50%" y="50%" font-family="Arial" font-size="60" font-weight="bold"
+        text-anchor="middle" dominant-baseline="central">
+    VG
   </text>
-
-  <!-- "G" Letter -->
-  <text x="115" y="115" font-family="Arial" font-size="70" font-weight="bold">
-    G
-  </text>
-
-  <!-- Traveling Dot Below VG -->
-  <circle cx="55" cy="120" r="4" fill="currentColor">
-    <animate attributeName="cx" values="55;125;170" dur="3s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Animated Line Under VG -->
-  <path d="M 55 120 L 125 120 L 170 120" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-        stroke-dasharray="115" stroke-dashoffset="115">
-    <animate attributeName="stroke-dashoffset" from="115" to="0" dur="3s" repeatCount="indefinite"/>
-  </path>
 </svg>
