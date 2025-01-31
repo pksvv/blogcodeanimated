@@ -1,0 +1,31 @@
+<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle (Subtle Glow) -->
+  <circle cx="100" cy="75" r="60" fill="none" stroke="white" stroke-width="4">
+    <animate attributeName="stroke-width" values="4;8;4" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Traveling Path Line (Simulating Car Motion) -->
+  <path d="M 40 100 Q 80 50, 120 100 T 160 100" fill="none" stroke="#FFD700" stroke-width="3" stroke-linecap="round" stroke-dasharray="150" stroke-dashoffset="150">
+    <animate attributeName="stroke-dashoffset" from="150" to="0" dur="2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- "V" Letter -->
+  <text x="50" y="110" font-family="Arial" font-size="70" fill="white" font-weight="bold">
+    V
+    <animate attributeName="opacity" values="0;1" dur="2s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- "G" Letter -->
+  <text x="110" y="110" font-family="Arial" font-size="70" fill="white" font-weight="bold">
+    G
+    <animate attributeName="opacity" values="0;1" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Moving Dot (Simulating Car) -->
+  <circle cx="40" cy="100" r="4" fill="red">
+    <animate attributeName="cx" values="40;80;120;160" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Scaling Effect -->
+  <animateTransform attributeName="transform" type="scale" from="1" to="1.05" dur="3s" repeatCount="indefinite"/>
+</svg>

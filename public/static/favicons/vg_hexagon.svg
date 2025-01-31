@@ -1,0 +1,36 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+  <!-- Hexagon Outline -->
+  <polygon id="hexagon" points="100,20 170,60 170,140 100,180 30,140 30,60"
+           stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"
+           stroke-dasharray="360" stroke-dashoffset="360">
+    <animate attributeName="stroke-dashoffset" from="360" to="0" dur="10s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Tracing Dot Around Hexagon -->
+  <circle r="5" fill="currentColor">
+    <animateMotion dur="10s" repeatCount="indefinite">
+      <mpath href="#hexagon"/>
+    </animateMotion>
+  </circle>
+
+  <!-- "V" Letter -->
+  <text x="55" y="115" font-family="Arial" font-size="70" font-weight="bold">
+    V
+  </text>
+
+  <!-- "G" Letter -->
+  <text x="115" y="115" font-family="Arial" font-size="70" font-weight="bold">
+    G
+  </text>
+
+  <!-- Traveling Dot Below VG -->
+  <circle cx="55" cy="120" r="4" fill="currentColor">
+    <animate attributeName="cx" values="55;125;170" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Animated Line Under VG -->
+  <path d="M 55 120 L 125 120 L 170 120" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+        stroke-dasharray="115" stroke-dashoffset="115">
+    <animate attributeName="stroke-dashoffset" from="115" to="0" dur="5s" repeatCount="indefinite"/>
+  </path>
+</svg>

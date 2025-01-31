@@ -1,0 +1,21 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Glowing Path of V and G -->
+  <path d="M 40 80 L 60 20 L 80 80 M 100 80 L 140 80 L 120 20" stroke="currentColor" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="180" stroke-dashoffset="180">
+    <animate attributeName="stroke-dashoffset" from="180" to="0" dur="2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Moving Dot that Traces the Letters -->
+  <circle cx="40" cy="80" r="5" fill="currentColor">
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <mpath href="#vg-path"/>
+    </animateMotion>
+  </circle>
+
+  <!-- Invisible Path for Dot to Follow -->
+  <path id="vg-path" d="M 40 80 L 60 20 L 80 80 M 100 80 L 140 80 L 120 20" fill="none"/>
+
+  <!-- "V" and "G" Static Letters -->
+  <text x="40" y="85" font-family="Arial" font-size="70" font-weight="bold" fill="currentColor">V</text>
+  <text x="100" y="85" font-family="Arial" font-size="70" font-weight="bold" fill="currentColor">G</text>
+</svg>
