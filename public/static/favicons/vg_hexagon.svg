@@ -1,15 +1,19 @@
 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-  <!-- Hexagon Outline -->
-  <polygon id="hexagon" points="100,20 170,60 170,140 100,180 30,140 30,60"
-           stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"
-           stroke-dasharray="360" stroke-dashoffset="360">
-    <animate attributeName="stroke-dashoffset" from="360" to="0" dur="10s" repeatCount="indefinite"/>
-  </polygon>
+  <!-- Hexagon Outline (Static) -->
+  <polygon points="100,20 170,60 170,140 100,180 30,140 30,60"
+           stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/>
 
-  <!-- Tracing Dot Around Hexagon -->
+  <!-- Tracing Line (Continuously Moving) -->
+  <path id="hexagon-path" d="M 100,20 L 170,60 L 170,140 L 100,180 L 30,140 L 30,60 L 100,20"
+        stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"
+        stroke-dasharray="360" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" values="360;0" dur="4s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Tracing Dot Moving Around Hexagon -->
   <circle r="5" fill="currentColor">
-    <animateMotion dur="10s" repeatCount="indefinite">
-      <mpath href="#hexagon"/>
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath href="#hexagon-path"/>
     </animateMotion>
   </circle>
 
@@ -31,6 +35,6 @@
   <!-- Animated Line Under VG -->
   <path d="M 55 120 L 125 120 L 170 120" stroke="currentColor" stroke-width="3" stroke-linecap="round"
         stroke-dasharray="115" stroke-dashoffset="115">
-    <animate attributeName="stroke-dashoffset" from="115" to="0" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" from="115" to="0" dur="3s" repeatCount="indefinite"/>
   </path>
 </svg>

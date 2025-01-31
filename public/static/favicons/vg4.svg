@@ -1,0 +1,30 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Glowing Background Effect -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Glowing Path of V and G -->
+  <path id="vg-path" d="M 40 80 L 60 20 L 80 80 M 100 80 L 140 80 L 120 20" 
+        stroke="lightblue" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"
+        stroke-dasharray="180" stroke-dashoffset="180"
+        filter="url(#glow)">
+    <animate attributeName="stroke-dashoffset" from="180" to="0" dur="2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Moving Dot that Traces the Letters -->
+  <circle cx="40" cy="80" r="5" fill="lightblue" filter="url(#glow)">
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <mpath href="#vg-path"/>
+    </animateMotion>
+  </circle>
+
+  <!-- "V" and "G" Static Letters -->
+  <text x="40" y="85" font-family="Arial" font-size="70" font-weight="bold" fill="lightblue" filter="url(#glow)">V</text>
+  <text x="100" y="85" font-family="Arial" font-size="70" font-weight="bold" fill="lightblue" filter="url(#glow)">G</text>
+</svg>
