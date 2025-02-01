@@ -28,7 +28,7 @@ export default function Home({ posts }) {
             {siteMetadata.description}
           </p>
         </div>
-        
+
         {/* Blog Posts */}
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
@@ -97,14 +97,14 @@ export default function Home({ posts }) {
       )}
 
       {/* Newsletter Signup */}
-      {siteMetadata.newsletter?.provider && (
+      {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
 
       {/* CTA Popup */}
-      <CTAPopup />
+      {/* <CTAPopup /> */}
     </>
   )
 }

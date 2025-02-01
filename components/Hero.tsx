@@ -4,9 +4,10 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col items-center justify-center py-16 px-4 text-center transition-colors duration-300 
-                    bg-gradient-to-r from-blue-500 to-purple-600 dark:from-gray-800 dark:to-gray-900">
-      
+    <div
+      className="relative flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-16 
+                    text-center transition-colors duration-300 dark:from-gray-800 dark:to-gray-900"
+    >
       {/* Profile Image */}
       <Image
         //src="/static/images/profile.jpg"
@@ -17,14 +18,14 @@ export default function Hero() {
         //className="rounded-full shadow-lg text-black dark:text-white"
         className="rw-40 h-40 text-blue-500 dark:text-yellow-400"
       />
-      
+
       {/* Name / Title */}
-      <h1 className="mt-4 text-4xl font-extrabold text-white sm:text-5xl md:text-6xl dark:text-gray-200">
+      <h1 className="mt-4 text-4xl font-extrabold text-white dark:text-gray-200 sm:text-5xl md:text-6xl">
         {siteMetadata.author}
       </h1>
 
       {/* Subtitle / Short Bio */}
-      <p className="mt-2 max-w-2xl text-lg text-gray-200 sm:text-xl dark:text-gray-400">
+      <p className="mt-2 max-w-2xl text-lg text-gray-200 dark:text-gray-400 sm:text-xl">
         {siteMetadata.description}
       </p>
 

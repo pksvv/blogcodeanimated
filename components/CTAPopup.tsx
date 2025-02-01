@@ -1,36 +1,36 @@
-'use client';
+'use client'
 
-import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 
 type FormData = {
-  name: string;
-  email: string;
-};
+  name: string
+  email: string
+}
 
 const CTAPopup = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [formData, setFormData] = useState<FormData>({ name: '', email: '' });
+  const [isVisible, setIsVisible] = useState<boolean>(true)
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '' })
 
   // Close popup on Escape key press
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsVisible(false);
+        setIsVisible(false)
       }
-    };
-    document.addEventListener('keydown', handleKeyDown);
+    }
+    document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const saveData = async (e: FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
       const response = await fetch('/api/saveCtaData', {
@@ -39,22 +39,22 @@ const CTAPopup = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      });
+      })
 
       if (response.ok) {
-        alert('Data saved successfully!');
-        setFormData({ name: '', email: '' });
-        setIsVisible(false); // Close the popup on success
+        alert('Data saved successfully!')
+        setFormData({ name: '', email: '' })
+        setIsVisible(false) // Close the popup on success
       } else {
-        const errorData = await response.json();
-        alert(`Failed to save data: ${errorData.message}`);
+        const errorData = await response.json()
+        alert(`Failed to save data: ${errorData.message}`)
       }
     } catch (error) {
-      alert('An error occurred while saving data.');
+      alert('An error occurred while saving data.')
     }
-  };
+  }
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -108,7 +108,7 @@ const CTAPopup = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CTAPopup;
+export default CTAPopup

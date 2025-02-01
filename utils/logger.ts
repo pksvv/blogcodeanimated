@@ -2,7 +2,7 @@ import pino from 'pino'
 
 const isBrowser = typeof window !== 'undefined'
 
-/* const logger = isBrowser
+const logger = isBrowser
   ? pino({
       browser: {
         asObject: true, // Logs appear as objects in the browser console
@@ -19,16 +19,5 @@ const isBrowser = typeof window !== 'undefined'
       },
       level: 'info',
     })
- */}
-const logger = pino({
-    transport: {
-        target: 'pino-pretty',
-        options: {
-        colorize: true,
-        sync: true, // Use sync mode to avoid worker threads
-        },
-    },
-    });
-      
 
 export default logger
