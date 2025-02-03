@@ -1,0 +1,6 @@
+<svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="12,2 22,8 18,10 12,6 6,10 2,8" fill="#FF6F00"/>
+  <polygon points="6,10 6,18 12,22 12,14" fill="#FFA000"/>
+  <polygon points="18,10 18,18 12,22 12,14" fill="#FF6F00"/>
+  <animateTransform attributeType="XML" attributeName="transform" type="scale" values="1; 1.1; 1" dur="1.5s" repeatCount="indefinite"/>
+</svg>
