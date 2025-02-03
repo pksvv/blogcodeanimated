@@ -10,11 +10,14 @@ import { notFound } from 'next/navigation'
 
 const POSTS_PER_PAGE = 5
 
-export async function generateMetadata(props: {
+// Generate metadata using async params (typed as Promise)
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ tag: string }>
 }): Promise<Metadata> {
-  const params = await props.params
-  const tag = decodeURI(params.tag)
+  const resolvedParams = await params
+  const tag = decodeURI(resolvedParams.tag)
   return genPageMetadata({
     title: tag,
     description: `${siteMetadata.title} ${tag} tagged content`,
@@ -27,6 +30,7 @@ export async function generateMetadata(props: {
   })
 }
 
+// Pre-generate static params for each tag.
 export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
@@ -36,16 +40,16 @@ export const generateStaticParams = async () => {
   return paths
 }
 
-export default async function TagPage(props: {
-  params: Promise<{ tag: string }>
-  searchParams: Promise<{ page: string }>
-}) {
-  const params = await props.params
-  const tag = decodeURI(params.tag)
-  const searchParams = await props.searchParams
-  const pageNumber = parseInt(searchParams.page || '1')
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+// Updated TagPage component: props expect params as a Promise.
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+  const resolvedParams = await params
+  const tag = decodeURI(resolvedParams.tag)
+  const pageNumber = 1 // For static export, default to page 1.
+
+  // Capitalize the first letter and replace spaces with dashes.
+  const title = tag[0].toUpperCase() + tag.slice(1).replace(/ /g, '-')
+
+  // Filter and sort posts based on tag.
   const filteredPosts = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const skills = [
   { name: 'Tensorflow', icon: '/static/favicons/tensorflow.svg' },
   { name: 'TypeScript', icon: '/static/favicons/typescript.svg' },
@@ -52,10 +54,12 @@ export default function Skills() {
       <div className="mt-8 grid grid-cols-2 gap-6 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
         {skills.map((skill) => (
           <div key={skill.name} className="flex flex-col items-center">
-            <img
+            <Image
               src={skill.icon}
               alt={skill.name}
-              className="h-12 w-12 transition-transform hover:scale-110 dark:invert"
+              width={48} // Set width explicitly
+              height={48} // Set height explicitly
+              className="transition-transform hover:scale-110 dark:invert"
             />
             <p className="mt-2 text-lg text-gray-800 dark:text-gray-200">{skill.name}</p>
           </div>
